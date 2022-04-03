@@ -42,6 +42,7 @@ public class RoleAspect {
                 }
             }else{
                 throw new AuthException(NO_AUTH.getMsg());
+
             }
         }
     }
