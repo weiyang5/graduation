@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TemplatesSettings">
+    <option name="templateConfigs">
+      <TemplateContext>
+        <option name="generateConfig">
+          <GenerateConfig>
+            <option name="annotationType" value="MYBATIS_PLUS3" />
+            <option name="basePackage" value="com.graduation" />
+            <option name="basePath" value="src/main/java" />
+            <option name="classNameStrategy" value="camel" />
+            <option name="encoding" value="UTF-8" />
+            <option name="extraClassSuffix" value="" />
+            <option name="ignoreFieldPrefix" value="" />
+            <option name="ignoreFieldSuffix" value="" />
+            <option name="ignoreTablePrefix" value="tb_" />
+            <option name="ignoreTableSuffix" value="" />
+            <option name="moduleName" value="graduation" />
+            <option name="modulePath" value="$PROJECT_DIR$" />
+            <option name="moduleUIInfoList">
+              <list>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
+                  <option name="configName" value="mapperInterface" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Mapper" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$" />
+                  <option name="packageName" value="${domain.basePackage}.mapper" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="src/main/resources" />
+                  <option name="configName" value="mapperXml" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Mapper" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
+                  <option name="modulePath" value="$PROJECT_DIR$" />
+                  <option name="packageName" value="mapper" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
+                  <option name="configName" value="serviceImpl" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}ServiceImpl" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$" />
+                  <option name="packageName" value="${domain.basePackage}.service.impl" />
+                </ModuleInfoGo>
+                <ModuleInfoGo>
+                  <option name="basePath" value="${domain.basePath}" />
+                  <option name="configName" value="serviceInterface" />
+                  <option name="encoding" value="${domain.encoding}" />
+                  <option name="fileName" value="${domain.fileName}Service" />
+                  <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
+                  <option name="modulePath" value="$PROJECT_DIR$" />
+                  <option name="packageName" value="${domain.basePackage}.service" />
+                </ModuleInfoGo>
+              </list>
+            </option>
+            <option name="needsComment" value="true" />
+            <option name="relativePackage" value="entity" />
+            <option name="superClass" value="" />
+            <option name="tableUIInfoList">
+              <list>
+                <TableUIInfo>
+                  <option name="className" value="Article" />
+                  <option name="tableName" value="tb_article" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Certificate" />
+                  <option name="tableName" value="tb_certificate" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Channel" />
+                  <option name="tableName" value="tb_channel" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Company" />
+                  <option name="tableName" value="tb_company" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Dict" />
+                  <option name="tableName" value="tb_dict" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Experience" />
+                  <option name="tableName" value="tb_experience" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Favor" />
+                  <option name="tableName" value="tb_favor" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Intention" />
+                  <option name="tableName" value="tb_intention" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Menu" />
+                  <option name="tableName" value="tb_menu" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Post" />
+                  <option name="tableName" value="tb_post" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Profession" />
+                  <option name="tableName" value="tb_profession" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Project" />
+                  <option name="tableName" value="tb_project" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Resume" />
+                  <option name="tableName" value="tb_resume" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Send" />
+                  <option name="tableName" value="tb_send" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Student" />
+                  <option name="tableName" value="tb_student" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Train" />
+                  <option name="tableName" value="tb_train" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Type" />
+                  <option name="tableName" value="tb_type" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="User" />
+                  <option name="tableName" value="tb_user" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="UserMenu" />
+                  <option name="tableName" value="tb_user_menu" />
+                </TableUIInfo>
+              </list>
+            </option>
+            <option name="templatesName" value="mybatis-plus3" />
+            <option name="useLombokPlugin" value="true" />
+          </GenerateConfig>
+        </option>
+        <option name="moduleName" value="graduation" />
+        <option name="projectPath" value="$PROJECT_DIR$" />
+        <option name="templateName" value="mybatis-plus3" />
+      </TemplateContext>
+    </option>
+  </component>
+</project>

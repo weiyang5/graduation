@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.mapper.SendMapper">
+
+    <resultMap id="BaseResultMap" type="com.graduation.entity.Send">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="companyId" column="company_id" jdbcType="INTEGER"/>
+            <result property="postId" column="post_id" jdbcType="INTEGER"/>
+            <result property="resumeId" column="resume_id" jdbcType="INTEGER"/>
+            <result property="sendDate" column="send_date" jdbcType="DATE"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="studentId" column="student_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,company_id,post_id,
+        resume_id,send_date,status,
+        student_id
+    </sql>
+</mapper>

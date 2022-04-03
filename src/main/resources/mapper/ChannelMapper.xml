@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.mapper.ChannelMapper">
+
+    <resultMap id="BaseResultMap" type="com.graduation.entity.Channel">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+            <result property="channelImg" column="channel_img" jdbcType="VARCHAR"/>
+            <result property="summary" column="summary" jdbcType="VARCHAR"/>
+            <result property="single" column="single" jdbcType="CHAR"/>
+            <result property="url" column="url" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="sort" column="sort" jdbcType="INTEGER"/>
+            <result property="createDate" column="create_date" jdbcType="DATE"/>
+            <result property="createUser" column="create_user" jdbcType="INTEGER"/>
+            <result property="deletedFlag" column="deleted_flag" jdbcType="CHAR"/>
+            <result property="postion" column="postion" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,parent_id,
+        channel_img,summary,single,
+        url,content,sort,
+        create_date,create_user,deleted_flag,
+        postion
+    </sql>
+</mapper>

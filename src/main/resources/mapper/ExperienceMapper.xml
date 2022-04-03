@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.mapper.ExperienceMapper">
+
+    <resultMap id="BaseResultMap" type="com.graduation.entity.Experience">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="post" column="post" jdbcType="VARCHAR"/>
+            <result property="salary" column="salary" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="joinDate" column="join_date" jdbcType="DATE"/>
+            <result property="leaveDate" column="leave_date" jdbcType="DATE"/>
+            <result property="resumeId" column="resume_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,company,post,
+        salary,description,join_date,
+        leave_date,resume_id
+    </sql>
+</mapper>
