@@ -18,12 +18,9 @@ import static com.graduation.util.RedisConstants.LOGIN_TOKEN_TTL;
 import static com.graduation.util.Status.TOKEN_ERROR;
 
 public class ReflushTokenInterceptor implements HandlerInterceptor {
-
+    @Resource
     private RedisTemplate redisTemplate;
 
-    public ReflushTokenInterceptor(RedisTemplate redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -31,19 +28,19 @@ public class ReflushTokenInterceptor implements HandlerInterceptor {
         if (StrUtil.isBlank(token)) {
             throw new TokenException(TOKEN_ERROR.getMsg());
         }
-        Object user = redisTemplate.opsForValue().get(LOGIN_TOKEN+token);
+        Object user = redisTemplate.opsForValue().get(token);
         if(user==null){
             throw new TokenException(TOKEN_ERROR.getMsg());
         }
         UserDTO userDTO = BeanUtil.toBean(user, UserDTO.class);
         UserHolder.saveUser(userDTO);
-        redisTemplate.expire(LOGIN_TOKEN+token,LOGIN_TOKEN_TTL, TimeUnit.SECONDS);
+        redisTemplate.expire(token,LOGIN_TOKEN_TTL, TimeUnit.SECONDS);
         return true;
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
+
     }
 
     @Override
