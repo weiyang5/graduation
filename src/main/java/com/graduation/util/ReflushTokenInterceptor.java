@@ -3,6 +3,7 @@ package com.graduation.util;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
 import com.graduation.dto.UserDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,14 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.graduation.util.RedisConstants.LOGIN_TOKEN;
 import static com.graduation.util.RedisConstants.LOGIN_TOKEN_TTL;
 import static com.graduation.util.Status.TOKEN_ERROR;
 
 public class ReflushTokenInterceptor implements HandlerInterceptor {
-    @Resource
-    private RedisTemplate redisTemplate;
 
+    private RedisTemplate redisTemplate;
+    public ReflushTokenInterceptor(RedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

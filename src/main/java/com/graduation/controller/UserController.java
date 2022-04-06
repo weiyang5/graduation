@@ -1,5 +1,6 @@
 package com.graduation.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.graduation.entity.Type;
 import com.graduation.entity.User;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -58,9 +60,24 @@ public class UserController {
 
     @PostMapping("query")
     @RequiresRoles(type = Role.ADMIN)
-    public Map<String,Object> query(@RequestBody  User user){
-        Page<User> page=new Page<>(1,10);
-        userService.query().page(page);
+    public Map<String,Object> query(@RequestBody HashMap<String, String> jsonString){
+        Integer page1;
+        if(jsonString.get("page")==null){
+            page1=1;
+        }else{
+            page1 = Integer.valueOf(jsonString.get("page"));
+        }
+
+        Page<User> page=new Page<>(page1,10);
+        LambdaQueryWrapper<User> lambdaQueryWrapper=new LambdaQueryWrapper<>();
+        if(jsonString.get("name")!=null){
+            lambdaQueryWrapper.like(User::getName,jsonString.get("name"));
+        }
+        if(jsonString.get("userName")!=null){
+            lambdaQueryWrapper.like(User::getUserName,jsonString.get("userName"));
+        }
+        userService.getBaseMapper().selectPage(page,lambdaQueryWrapper);
+        //userService.query().page(page);
         return Result.ok(page);
     }
 }

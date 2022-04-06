@@ -21,7 +21,7 @@ public class GlobalMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new ReflushTokenInterceptor())
+        registry.addInterceptor(new ReflushTokenInterceptor(redisTemplate))
                 .excludePathPatterns(
                         "/login"
                 );

@@ -10,5 +10,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface UserService extends IService<User> {
 
-    public User login(String UserName,String password);
+    User login(String UserName,String password);
+
 }
