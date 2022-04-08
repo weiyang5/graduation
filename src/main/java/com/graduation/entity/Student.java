@@ -44,7 +44,7 @@ public class Student implements Serializable {
     /**
      * 
      */
-    private Integer professionId;
+    private String special;
 
     /**
      * 

@@ -63,80 +63,8 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="Article" />
-                  <option name="tableName" value="tb_article" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Certificate" />
-                  <option name="tableName" value="tb_certificate" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Channel" />
-                  <option name="tableName" value="tb_channel" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Company" />
-                  <option name="tableName" value="tb_company" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Dict" />
-                  <option name="tableName" value="tb_dict" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Experience" />
-                  <option name="tableName" value="tb_experience" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Favor" />
-                  <option name="tableName" value="tb_favor" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Intention" />
-                  <option name="tableName" value="tb_intention" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Menu" />
-                  <option name="tableName" value="tb_menu" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Post" />
-                  <option name="tableName" value="tb_post" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Profession" />
-                  <option name="tableName" value="tb_profession" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Project" />
-                  <option name="tableName" value="tb_project" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Resume" />
-                  <option name="tableName" value="tb_resume" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Send" />
-                  <option name="tableName" value="tb_send" />
-                </TableUIInfo>
-                <TableUIInfo>
                   <option name="className" value="Student" />
                   <option name="tableName" value="tb_student" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Train" />
-                  <option name="tableName" value="tb_train" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Type" />
-                  <option name="tableName" value="tb_type" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="User" />
-                  <option name="tableName" value="tb_user" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="UserMenu" />
-                  <option name="tableName" value="tb_user_menu" />
                 </TableUIInfo>
               </list>
             </option>

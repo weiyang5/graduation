@@ -10,7 +10,7 @@
             <result property="account" column="account" jdbcType="VARCHAR"/>
             <result property="password" column="password" jdbcType="VARCHAR"/>
             <result property="birthday" column="birthday" jdbcType="DATE"/>
-            <result property="professionId" column="profession_id" jdbcType="INTEGER"/>
+            <result property="special" column="special" jdbcType="VARCHAR"/>
             <result property="college" column="college" jdbcType="VARCHAR"/>
             <result property="education" column="education" jdbcType="VARCHAR"/>
             <result property="phone" column="phone" jdbcType="VARCHAR"/>
@@ -21,7 +21,7 @@
 
     <sql id="Base_Column_List">
         id,name,account,
-        password,birthday,profession_id,
+        password,birthday,special,
         college,education,phone,
         sex,photo,graduate_date
     </sql>
