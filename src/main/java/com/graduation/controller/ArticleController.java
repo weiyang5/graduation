@@ -22,8 +22,7 @@ public class ArticleController {
     private ArticleService articleService;
     @PostMapping("create")
     public Result create(@RequestBody Article article){
-        String token = UserHolder.getUser().getToken();
-        UserDTO userDTO = (UserDTO)redisTemplate.opsForValue().get(token);
+        UserDTO userDTO = UserHolder.getUser();
         article.setCreateDate(new Date());
         article.setCreateUser(userDTO.getId());
         boolean b = articleService.save(article);

@@ -2,9 +2,11 @@ package com.graduation.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.graduation.dto.UserDTO;
 import com.graduation.entity.Company;
 import com.graduation.service.CompanyService;
 import com.graduation.util.Result;
+import com.graduation.util.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,6 +49,11 @@ public class CompanyController {
         }else{
             return Result.fail();
         }
+    }
+    @GetMapping("info")
+    public Result info(){
+        UserDTO user = UserHolder.getUser();
+        return  Result.ok(companyService.getById(user.getId()));
     }
 
     @GetMapping("detail")

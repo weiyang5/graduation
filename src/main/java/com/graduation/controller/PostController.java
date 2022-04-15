@@ -2,12 +2,12 @@ package com.graduation.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.graduation.entity.Type;
-import com.graduation.entity.User;
-import com.graduation.service.UserService;
-import com.graduation.util.RequiresRoles;
+import com.graduation.dto.UserDTO;
+import com.graduation.entity.Post;
+import com.graduation.entity.Resume;
+import com.graduation.service.PostService;
 import com.graduation.util.Result;
-import com.graduation.util.Role;
+import com.graduation.util.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,14 +16,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/post")
+public class PostController {
     @Autowired
-    private UserService userService;
+    private PostService postService;
     @PostMapping("create")
-    @RequiresRoles(type = Role.ADMIN)
-    public Result create(@RequestBody User user){
-        boolean b = userService.save(user);
+    public Result create(@RequestBody Post post){
+        UserDTO user = UserHolder.getUser();
+        Integer id = user.getId();
+        post.setId(id);
+        boolean b = postService.save(post);
         if(b){
             return Result.ok();
         }else{
@@ -34,7 +36,7 @@ public class UserController {
     @GetMapping("delete")
     public Result delete(String ids){
         String[] arr = ids.split(",");
-        boolean b = userService.removeByIds(Arrays.asList(arr));
+        boolean b = postService.removeByIds(Arrays.asList(arr));
         if(b){
             return Result.ok();
         }else{
@@ -43,8 +45,8 @@ public class UserController {
     }
 
     @PostMapping("update")
-    public Result update(@RequestBody User user){
-        boolean update = userService.updateById(user);
+    public Result update(@RequestBody Post company){
+        boolean update = postService.updateById(company);
 
         if(update){
             return Result.ok();
@@ -52,10 +54,15 @@ public class UserController {
             return Result.fail();
         }
     }
+    @GetMapping("info")
+    public Result info(){
+        UserDTO user = UserHolder.getUser();
+        return  Result.ok(postService.getById(user.getId()));
+    }
 
     @GetMapping("detail")
     public Result detail(Integer id){
-        return  Result.ok(userService.getById(id));
+        return  Result.ok(postService.getById(id));
     }
 
     @PostMapping("query")
@@ -66,16 +73,17 @@ public class UserController {
         }else{
             page1 = Integer.valueOf(jsonString.get("page"));
         }
+        UserDTO user = UserHolder.getUser();
+        Integer id = user.getId();
+        Page<Post> page=new Page<>(page1,10);
+        LambdaQueryWrapper<Post> lambdaQueryWrapper=new LambdaQueryWrapper<>();
 
-        Page<User> page=new Page<>(page1,10);
-        LambdaQueryWrapper<User> lambdaQueryWrapper=new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(Post::getCompanyId,id);
+
         if(jsonString.get("name")!=null){
-            lambdaQueryWrapper.like(User::getName,jsonString.get("name"));
+            lambdaQueryWrapper.like(Post::getName,jsonString.get("name"));
         }
-        if(jsonString.get("userName")!=null){
-            lambdaQueryWrapper.like(User::getUserName,jsonString.get("userName"));
-        }
-        userService.getBaseMapper().selectPage(page,lambdaQueryWrapper);
+        postService.getBaseMapper().selectPage(page,lambdaQueryWrapper);
         //userService.query().page(page);
         return Result.ok(page);
     }
