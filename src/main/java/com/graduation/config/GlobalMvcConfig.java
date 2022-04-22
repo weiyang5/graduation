@@ -28,6 +28,7 @@ public class GlobalMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new ReflushTokenInterceptor(redisTemplate))
                 .excludePathPatterns(
                         "/login",
+                        "/front/**",
                         config.getAccessPath()
                 );
     }

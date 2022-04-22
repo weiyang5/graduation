@@ -2,12 +2,14 @@ package com.graduation.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.graduation.dto.UserDTO;
 import com.graduation.entity.Dict;
 import com.graduation.entity.Student;
 import com.graduation.service.StudentService;
 import com.graduation.util.RequiresRoles;
 import com.graduation.util.Result;
 import com.graduation.util.Role;
+import com.graduation.util.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,6 +59,11 @@ public class StudentController {
         return  Result.ok(studentService.getById(id));
     }
 
+    @GetMapping("info")
+    public Result info(){
+        UserDTO user = UserHolder.getUser();
+        return  Result.ok(studentService.getById(user.getId()));
+    }
     @PostMapping("query")
     public Map<String,Object> query(@RequestBody HashMap<String, String> jsonString){
         Integer page1;
