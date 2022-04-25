@@ -32,6 +32,7 @@ public class UserController {
     }
 
     @GetMapping("delete")
+    @RequiresRoles(type = Role.ADMIN)
     public Result delete(String ids){
         String[] arr = ids.split(",");
         boolean b = userService.removeByIds(Arrays.asList(arr));
@@ -43,6 +44,7 @@ public class UserController {
     }
 
     @PostMapping("update")
+    @RequiresRoles(type = Role.ADMIN)
     public Result update(@RequestBody User user){
         boolean update = userService.updateById(user);
 
@@ -54,11 +56,13 @@ public class UserController {
     }
 
     @GetMapping("detail")
+    @RequiresRoles(type = Role.ADMIN)
     public Result detail(Integer id){
         return  Result.ok(userService.getById(id));
     }
 
     @PostMapping("query")
+    @RequiresRoles(type = Role.ADMIN)
     public Map<String,Object> query(@RequestBody HashMap<String, String> jsonString){
         Integer page1;
         if(jsonString.get("page")==null){

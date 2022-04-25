@@ -8,8 +8,7 @@ import com.graduation.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/front/article")
@@ -32,11 +31,12 @@ public class ArticleFront {
 
         Page<Article> page=new Page<>(page1,10);
         LambdaQueryWrapper<Article> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-        if(jsonString.get("title")!=null){
-            lambdaQueryWrapper.like(Article::getTitle,jsonString.get("title"));
+        if(jsonString.get("channelId")!=null){
+            lambdaQueryWrapper.like(Article::getChannelId,jsonString.get("channelId"));
         }
         articleService.getBaseMapper().selectPage(page,lambdaQueryWrapper);
         //userService.query().page(page);
         return Result.ok(page);
     }
+
 }

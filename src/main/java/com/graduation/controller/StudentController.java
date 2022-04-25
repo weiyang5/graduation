@@ -60,6 +60,7 @@ public class StudentController {
     }
 
     @GetMapping("info")
+    @RequiresRoles(type = Role.STUDENT)
     public Result info(){
         UserDTO user = UserHolder.getUser();
         return  Result.ok(studentService.getById(user.getId()));
