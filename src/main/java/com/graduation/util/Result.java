@@ -3,6 +3,7 @@ package com.graduation.util;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Result {

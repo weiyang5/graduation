@@ -36,9 +36,5 @@ mybatis-plus:
 
 
 file:
-  #注意：结尾必须/
   uploadFolder: f:/upload/
-  #注意：结尾必须**
-  accessPath: /upload/**
-  #注意：结尾必须/
-  baseUrl: http://localhost:8889/graduation/upload/
+  accessPath: /upload/**ocalhost:8889/graduation/upload/

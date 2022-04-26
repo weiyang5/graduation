@@ -24,7 +24,7 @@ public class PostController {
     public Result create(@RequestBody Post post){
         UserDTO user = UserHolder.getUser();
         Integer id = user.getId();
-        post.setId(id);
+        post.setCompanyId(id);
         boolean b = postService.save(post);
         if(b){
             return Result.ok();
@@ -77,8 +77,9 @@ public class PostController {
         Integer id = user.getId();
         Page<Post> page=new Page<>(page1,10);
         LambdaQueryWrapper<Post> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-
-        lambdaQueryWrapper.eq(Post::getCompanyId,id);
+        Post post=new Post();
+        post.setCompanyId(id);
+        lambdaQueryWrapper.setEntity(post);
 
         if(jsonString.get("name")!=null){
             lambdaQueryWrapper.like(Post::getName,jsonString.get("name"));

@@ -17,4 +17,11 @@
         id,name,education,
         salary,description,company_id
     </sql>
+    <select id="getPostList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        select tb_post.* ,tb_company.id companyId,tb_company.name companyName,size,type
+        from tb_post,tb_company
+        where tb_post.company_id = tb_company.id
+        <if test="name != null and name != ''">and tb_post.name like concat('%',#{name},'%')</if>
+    </select>
+
 </mapper>
