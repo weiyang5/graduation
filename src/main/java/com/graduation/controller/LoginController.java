@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -45,6 +46,8 @@ public class LoginController {
         if(String.valueOf(Role.ADMIN.getCode()).equals(type)){
             User login = userService.login(account, password);
             if (login!=null){
+                login.setLoginTime(new Date());
+                userService.updateById(login);
                 userDTO.setId(login.getId());
                 userDTO.setAccount(login.getUserName());
                 userDTO.setName(login.getName());

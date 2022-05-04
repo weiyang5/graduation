@@ -29,10 +29,10 @@ public class ArticleFront {
             page1 = Integer.valueOf(jsonString.get("page"));
         }
 
-        Page<Article> page=new Page<>(page1,10);
+        Page<Article> page=new Page<>(page1,5);
         LambdaQueryWrapper<Article> lambdaQueryWrapper=new LambdaQueryWrapper<>();
         if(jsonString.get("channelId")!=null){
-            lambdaQueryWrapper.like(Article::getChannelId,jsonString.get("channelId"));
+            lambdaQueryWrapper.eq(Article::getChannelId,jsonString.get("channelId"));
         }
         articleService.getBaseMapper().selectPage(page,lambdaQueryWrapper);
         //userService.query().page(page);

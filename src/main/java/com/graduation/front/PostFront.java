@@ -1,6 +1,7 @@
 package com.graduation.front;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.graduation.entity.Post;
 import com.graduation.mapper.PostMapper;
@@ -33,13 +34,12 @@ public class PostFront {
             page1 = Integer.valueOf(jsonString.get("page"));
         }
         Page page=new Page(page1,10);
-        LambdaQueryWrapper<Post> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-
+        QueryWrapper<Post> queryWrapper=new QueryWrapper<>();
         if(jsonString.get("name")!=null){
-            lambdaQueryWrapper.like(Post::getName,jsonString.get("name"));
+            queryWrapper.like("tb_post.name",jsonString.get("name"));
         }
 //        postService.getBaseMapper().selectPage(page,lambdaQueryWrapper);
-        Page<Map<String,String>> postPage = postMapper.frontGetData(lambdaQueryWrapper, page);
+        Page<Map<String,String>> postPage = postMapper.frontGetData(queryWrapper, page);
         List records = postPage.getRecords();
         records.forEach(System.out::println);
         return Result.ok(page);

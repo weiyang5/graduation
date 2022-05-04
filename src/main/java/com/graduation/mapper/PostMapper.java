@@ -22,8 +22,9 @@ public interface PostMapper extends BaseMapper<Post> {
     public List<HashMap> getPostList(HashMap map);
     @Select("<script>"+
             "select tb_post.* ,tb_company.id companyId,tb_company.name companyName,size,type from tb_post,tb_company where tb_post.company_id = tb_company.id"+
+            " and ${ew.sqlSegment}"+
             "</script>")
-    Page<Map<String,String>> frontGetData(@Param("ew") LambdaQueryWrapper ew, Page page);
+    Page<Map<String,String>> frontGetData(@Param("ew") QueryWrapper ew, Page page);
 }
 
 
